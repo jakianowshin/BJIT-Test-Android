@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+public class Problem3 {
+    public static void main(String[] args) {
+        int vaccineNotGiven;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("How many people are there?");
+        int N = sc.nextInt();
+        System.out.println("Enter the total number of vaccine");
+        int vaccine = sc.nextInt();
+        int vaccineForEachGroup=vaccine/2;
+        System.out.println("Enter vaccine limit to age group");
+       int vaccineLimit = sc.nextInt();
+
+        int women = N/3;
+        int men = N-women;
+         int [] ageArray={55,50,45,40,35,30,25};
+        int []M=new int[men];
+        int []W=new int[women];
+        Problem2 male =new Problem2();
+        Problem2 female =new Problem2();
+        System.out.println("Total men: "+men);
+        System.out.println("Age set to men");
+        System.out.println("Total women: "+ women );
+        System.out.println("Age set to women");
+        System.out.println("Vaccines allocated for men:"+vaccineForEachGroup);
+        System.out.println("Vaccines allocated for women:"+vaccineForEachGroup);
+        male.groupofPeople(M,ageArray);
+        female.groupofPeople(W,ageArray);
+        System.out.println("Vaccines given to men:");
+        vaccineNotGiven=male.vaccineDone(M,ageArray,vaccineForEachGroup,vaccineLimit);
+        System.out.println("Vaccines given to women:");
+        vaccineNotGiven=vaccineNotGiven+female.vaccineDone(W,ageArray,vaccineForEachGroup,vaccineLimit);
+        System.out.println("Total vaccines given:"+(vaccine-vaccineNotGiven));
+        System.out.println("Total vaccines not given:"+vaccineNotGiven);
+
+
+    }
+
+        public int []groupofPeople(int []a,int[]ageArray){
+        int count=0;
+        for(int i=0;i<a.length;i++){
+            a[i]=ageArray[count];
+            count++;
+            if(count==ageArray.length){
+                count=0;
+            }
+        }
+        return a;
+    }
+
+        public int vaccineDone(int []a,int[]ageArray,int vaccineForEachGroup,int vaccineLimit){
+        for(int j =0;j<ageArray.length;j++){
+            int c=0;
+        for(int i =0;i<a.length;i++){
+
+                if(a[i]==ageArray[j] && vaccineForEachGroup!=0){
+                    c++;
+                    vaccineForEachGroup--;
+
+                    if(c>vaccineLimit){
+                        c--;
+                        vaccineForEachGroup++;
+                        break;
+                    }
+
+                    }
+                }
+            System.out.println("Age "+ageArray[j]+"= "+c);
+
+        }
+        return  vaccineForEachGroup;
+    }
+
+}

@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Problem4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Amount to withdraw: ");
+        int amt = sc.nextInt();
+
+        if(amt<500 || amt%500!=0){
+            System.out.println("INVALID AMOUNT");
+        }
+        else if(amt>20000){
+            System.out.println("EXCEEDED AMOUNT");
+        }
+       else if(amt>=500 && amt<=20000) {
+            System.out.println("TRANSACTION SUCCESSFUL");
+        }
+       else{
+            System.out.println("“Error Occurred");
+        }
+
+}}

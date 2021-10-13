@@ -1,0 +1,16 @@
+1.Ans: Activity is the screen that shows the user Interface. An application may have one or more than one activities. Using activity,
+the UI component or the widgets can be shown in a single screen.
+
+2.ans: 1.Services
+	2.Activities,
+	3.Broadcast Receivers,
+	4.Content providers.
+
+
+3.ans: onPause is called when the activity is partially visible. it means this method does not distroy the activity rather the activity remains in the 
+background. 
+
+4.ans: the 7 callback methods are : onCreate() , onStart() , onResume() , onRestart(),  onPause() , onStop() , and onDestroy() .
+
+5.ans: Android service is a component that does not have any user interface but it performs operations in the backgroud.for example:
+playing music, handling network transactions etc.

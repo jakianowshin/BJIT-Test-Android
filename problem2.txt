@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Problem2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter minimum length of the picture");
+        int L = sc.nextInt();
+        int W,H;
+        System.out.println("How many pictures?");
+        int N = sc.nextInt();
+        for(int i =0;i<N;i++){
+            System.out.println(" show width of the picture");
+            W = sc.nextInt();
+            System.out.println(" show height of the picture");
+            H = sc.nextInt();
+            if(W<L || H<L){
+                System.out.println("“UPLOAD ANOTHER");
+
+            }
+            else if(W>=L || H>=L ){
+                if(W==L && H==L){
+                    System.out.println("ACCEPTED");
+                }
+                else{
+                    System.out.println("CROP IT");
+
+                }
+            }
+
+
+
+        }
+
+
+    }
+}
